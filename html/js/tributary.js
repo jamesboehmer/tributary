@@ -9,6 +9,7 @@ var lastMessageTime=Date.now();
 
 
 function appendQueryTerm(queryTerm) {
+    lastMessageTime=Date.now();
 	var queryListItem = $("<li class='query-list-item'></li>").text(queryTerm.queryTerm);
 	if ($('.query-list-item').length >= MAX_LIST_LENGTH) {
 		$('.query-list-item').first().remove();
