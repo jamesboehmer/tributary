@@ -85,6 +85,7 @@ setup_socket();
 window.setInterval(function() {
     var rightNow = Date.now();
     if((rightNow-lastMessageTime >=15000) && !userDisconnect && !isReconnecting){
+        lastMessageTime=Date.now();        
         isReconnecting=true;
         setup_socket();
         isReconnecting=false;
