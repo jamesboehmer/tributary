@@ -10,7 +10,15 @@ var lastMessageTime=Date.now();
 
 function appendQueryTerm(queryTerm) {
     lastMessageTime=Date.now();
-	var queryListItem = $("<li class='query-list-item'></li>").text(queryTerm.queryTerm);
+	var queryListItem = $('<li/>', {
+        'class': 'query-list-item'
+    });
+    var searchAnchor = $('<a/>', {
+        'href': 'http://query.nytimes.com/search/sitesearch/#/' + encodeURIComponent(queryTerm.queryTerm),
+        text: queryTerm.queryTerm,
+        'target': '_blank'
+    });
+    queryListItem.append(searchAnchor);
 	if ($('.query-list-item').length >= MAX_LIST_LENGTH) {
 		$('.query-list-item').first().remove();
 	}
